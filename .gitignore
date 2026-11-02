@@ -1,0 +1,16 @@
+# Dependencies - re-install with npm install
+node_modules/
+
+# Environment variables - NEVER commit (contains secrets)
+.env
+
+# Aiven CA certificate (optional, keep local)
+ca.pem
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.log

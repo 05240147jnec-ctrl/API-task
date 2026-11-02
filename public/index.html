@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My tasks</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+
+    <header class="hero">
+      <div class="hero-text">
+        <p id="today" class="date"></p>
+        <h1>My tasks</h1>
+        <p id="summary" class="summary" aria-live="polite"></p>
+      </div>
+      <div class="ring" role="img" aria-label="Completion progress">
+        <svg viewBox="0 0 80 80" width="96" height="96">
+          <circle class="ring-track" cx="40" cy="40" r="34"></circle>
+          <circle id="ring-bar" class="ring-bar" cx="40" cy="40" r="34"></circle>
+        </svg>
+        <span id="pct" class="pct">0%</span>
+      </div>
+    </header>
+
+    <form id="add-form" class="add" autocomplete="off">
+      <label for="new-title" class="sr-only">New task</label>
+      <input id="new-title" type="text" maxlength="255" placeholder="Add a new task..." required>
+      <button type="submit" class="btn-primary">Add task</button>
+    </form>
+
+    <div class="toolbar">
+      <div id="filters" class="seg" role="tablist" aria-label="Filter tasks">
+        <button role="tab" data-filter="all" aria-selected="true">All <span class="count" id="c-all">0</span></button>
+        <button role="tab" data-filter="active" aria-selected="false">To do <span class="count" id="c-active">0</span></button>
+        <button role="tab" data-filter="done" aria-selected="false">Done <span class="count" id="c-done">0</span></button>
+      </div>
+      <label for="search" class="sr-only">Search tasks</label>
+      <input id="search" class="search" type="search" placeholder="Search tasks">
+    </div>
+
+    <ul id="list" class="list"></ul>
+
+    <div id="empty" class="empty" hidden>
+      <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect x="12" y="8" width="40" height="48" rx="6" stroke="currentColor" stroke-width="3"/>
+        <path d="M22 24h20M22 34h20M22 44h11" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <h2 id="empty-title"></h2>
+      <p id="empty-text"></p>
+    </div>
+
+  </div>
+
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
